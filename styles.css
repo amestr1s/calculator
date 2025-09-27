@@ -1,0 +1,71 @@
+body {
+    box-sizing: border-box;
+}
+
+#whole {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#calculator {
+    border: 2px solid black;
+    margin: 80px;
+    width: 250px;
+    height: 225px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+#display {
+    border: 2px solid red;
+    margin: 1px;
+    width: 249px;
+    height: 40px;
+    font-size: 32px;
+    flex: 1;
+}
+
+#buttons {
+    display: flex;
+    flex: 5;
+    justify-content: center;
+}
+
+#one,
+#two,
+#three,
+#four,
+#five,
+#six,
+#seven,
+#eight,
+#nine,
+#add,
+#subtract,
+#multiply,
+#divide,
+#equal {
+    font-size: 32px;
+    margin: 2px;
+    padding: 5px;
+    
+}
+
+#digits {
+  
+    flex: 3;
+
+    height: 180px;
+    
+}
+
+#operators {
+    flex: 2;
+    height: 180px;
+    width: 80px;
+
+}
