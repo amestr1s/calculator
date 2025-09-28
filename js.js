@@ -18,20 +18,25 @@ let numA;
 let operator;
 let numB;
 let result;
-let displayContent;
+let displayContent = [];
+let justEvaluated = false;
 
 function operate (numA, operator, numB) {
     if (operator == "+") {
       result = add(numA, numB);
+      result = parseFloat(result.toFixed(3));
         console.log(result);
     } else if (operator == "-") {
       result = subtract(numA, numB);
+      result = parseFloat(result.toFixed(3));
         console.log(result);
     } else if (operator == "*") {
       result = multiply(numA, numB);
+      result = parseFloat(result.toFixed(3));
         console.log(result);
     } else if (operator == "/") {
       result = divide(numA, numB);
+      result = parseFloat(result.toFixed(3));
         console.log(result);
     }
 }
@@ -59,102 +64,228 @@ const display = document.querySelector("#display");
 
 
 zero.addEventListener('click',() => {
-        display.textContent += "0";
-        displayContent = display.textContent;
+    if (justEvaluated) {
+        displayContent = [];
+        justEvaluated = false;
+        result = null;
+    }
+    displayContent.push("0");
+    display.textContent = displayContent.join("");
 })
 
 one.addEventListener('click',() => {
-        display.textContent += "1";
-        displayContent = display.textContent;
+    if (justEvaluated) {
+        displayContent = [];
+        justEvaluated = false;
+        result = null;
+    }
+    displayContent.push("1");
+    display.textContent = displayContent.join("");
 })
 
 two.addEventListener('click',() => {
-        display.textContent += "2";
-        displayContent = display.textContent;
+    if (justEvaluated) {
+        displayContent = [];
+        justEvaluated = false;
+        result = null;
+    }
+    displayContent.push("2");
+    display.textContent = displayContent.join("");
 })
 
 three.addEventListener('click',() => {
-        display.textContent += "3";
-        displayContent = display.textContent;
+    if (justEvaluated) {
+        displayContent = [];
+        justEvaluated = false;
+        result = null;
+    }
+    displayContent.push("3");
+    display.textContent = displayContent.join("");
 })
 
 four.addEventListener('click',() => {
-        display.textContent += "4";
-        displayContent = display.textContent;
+    if (justEvaluated) {
+        displayContent = [];
+        justEvaluated = false;
+        result = null;
+    }
+    displayContent.push("4");
+    display.textContent = displayContent.join("");
 })
 
 five.addEventListener('click',() => {
-        display.textContent += "5";
-        displayContent = display.textContent;
+    if (justEvaluated) {
+        displayContent = [];
+        justEvaluated = false;
+        result = null;
+    }
+    displayContent.push("5");
+    display.textContent = displayContent.join("");
 })
 
 six.addEventListener('click',() => {
-        display.textContent += "6";
-        displayContent = display.textContent;
+    if (justEvaluated) {
+        displayContent = [];
+        justEvaluated = false;
+        result = null;
+    }
+    displayContent.push("6");
+    display.textContent = displayContent.join("");
 })
 
 seven.addEventListener('click',() => {
-        display.textContent += "7";
-        displayContent = display.textContent;
+    if (justEvaluated) {
+        displayContent = [];
+        justEvaluated = false;
+        result = null;
+    }
+    displayContent.push("7");
+    display.textContent = displayContent.join("");
 })
 
 eight.addEventListener('click',() => {
-        display.textContent += "8";
-        displayContent = display.textContent;
+    if (justEvaluated) {
+        displayContent = [];
+        justEvaluated = false;
+        result = null;
+    }
+    displayContent.push("8");
+    display.textContent = displayContent.join("");
 })
 
 nine.addEventListener('click',() => {
-        display.textContent += "9";
-        displayContent = display.textContent;
+    if (justEvaluated) {
+        displayContent = [];
+        justEvaluated = false;
+        result = null;
+    }
+    displayContent.push("9");
+    display.textContent = displayContent.join("");
 })
 
 plus.addEventListener('click',() => {
-        numA = parseFloat(displayContent);
-        operator = "+";
-        display.textContent = "";
-        displayContent = display.textContent;
-        
+          if (displayContent.length === 0) {
+          operator = "+";
+          return;
+    }
+          if (result == null) {
+          operator = "+";
+          numA = parseFloat(displayContent.join(""));
+          numB = 0;
+          operate(numA, operator, numB);
+          display.textContent = result;
+          numA = result;
+        } else {
+          numB = parseFloat(displayContent.join(""));
+          operate(numA, operator, numB);
+          display.textContent = result;
+          numA = result;
+          numB = 0;
+          operator = "+";
+        } displayContent = [];
+        dot.disabled = false;
 })
 
 minus.addEventListener('click',() => {
-        numA = parseFloat(displayContent);
-        operator = "-";
-        display.textContent = "";
-        displayContent = display.textContent;
+          if (displayContent.length === 0) {
+          operator = "-";
+          return;
+    }
+          if (result == null) {
+          operator = "-";
+          numA = parseFloat(displayContent.join(""));
+          numB = 0;
+          operate(numA, operator, numB);
+          display.textContent = result;
+          numA = result;
+        } else {
+          numB = parseFloat(displayContent.join(""));
+          operate(numA, operator, numB);
+          display.textContent = result;
+          numA = result;
+          numB = 0;
+          operator = "-";
+        } displayContent = [];
+        dot.disabled = false;
 })
 
 multiplier.addEventListener('click',() => {
-        numA = parseFloat(displayContent);
-        operator = "*";
-        display.textContent = "";
-        displayContent = display.textContent;
+          if (displayContent.length === 0) {
+          operator = "*";
+          return;
+    }
+          if (result == null) {
+          operator = "*";
+          numA = parseFloat(displayContent.join(""));
+          numB = 1;
+          operate(numA, operator, numB);
+          display.textContent = result;
+          numA = result;
+        } else {
+          numB = parseFloat(displayContent.join(""));
+          operate(numA, operator, numB);
+          display.textContent = result;
+          numA = result;
+          numB = 1;
+          operator = "*";
+        } displayContent = [];
+        dot.disabled = false;
 })
 
 divider.addEventListener('click',() => {
-        numA = parseFloat(displayContent);
-        operator = "/";
-        display.textContent = "";
-        displayContent = display.textContent;
+          if (displayContent.length === 0) {
+          operator = "/";
+          return;
+    }
+          if (result == null) {
+          operator = "/";
+          numA = parseFloat(displayContent.join(""));
+          numB = 1;
+          operate(numA, operator, numB);
+          display.textContent = result;
+          numA = result;
+        } else {
+          numB = parseFloat(displayContent.join(""));
+          operate(numA, operator, numB);
+          display.textContent = result;
+          numA = result;
+          numB = 1;
+          operator = "/";
+        } displayContent = [];
+        dot.disabled = false;
 })
 
 equal.addEventListener('click',() => {
-        numB = parseFloat(displayContent);
+        numB = parseFloat(displayContent.join(""));
         operate(numA, operator, numB);
         display.textContent = result;
-        displayContent = display.textContent;
+        displayContent = [result];
+        numA = result;
+        numB = null;
+        result = null;
+        justEvaluated = true;
 })
 
 dot.addEventListener('click',() => {
-        display.textContent += ".";
-        displayContent = display.textContent;
+        displayContent.push(".");
+        display.textContent = displayContent.join("");
+        dot.disabled = true;
 })
 
 clear.addEventListener('click',() => {
         display.textContent = "";
+        displayContent = [];
+        dot.disabled = false;
+        numA = null;
+        numB = null;
+        operator = null;
+        result = null;
 })
 
 backspace.addEventListener('click',() => {
-        
+        displayContent.pop();
+        display.textContent = displayContent.join("");
+        dot.disabled = false;
 })
 
 
