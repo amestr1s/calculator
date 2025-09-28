@@ -326,3 +326,7 @@ backspace.addEventListener('click',() => {
 //   let result = arr.reduce((product, current) => product / current);
 //   return result;
 // };
+
+//or you can just chatgpt this to this 
+//const $=id=>document.getElementById(id),d=$("display");let A,B,op,res,buf=[],evald=0;[..."0123456789"].forEach((n,i)=>$(["zero","one","two","three","four","five","six","seven","eight","nine"][i]).onclick=_=>{evald&&(buf=[],res=null,evald=0);buf.push(n);d.textContent=buf.join("")});dot.onclick=_=>{if(!buf.includes("."))buf.push("."),d.textContent=buf.join(""),dot.disabled=1};const ops={"+":(a,b)=>a+b,"-":(a,b)=>a-b,"*":(a,b)=>a*b,"/":(a,b)=>a/b};const setOp=(s,defB)=>{if(evald){evald=0;buf=[]}if(!buf.length)return op=s;if(res==null)A=parseFloat(buf.join("")),B=defB,res=ops[s](A,B);else B=parseFloat(buf.join("")),res=ops[op](A,B);d.textContent=(res=+res.toFixed(3));A=res;op=s;buf=[];dot.disabled=0};plus.onclick=_=>setOp("+",0);minus.onclick=_=>setOp("-",0);multiplier.onclick=_=>setOp("*",1);divider.onclick=_=>setOp("/",1);equal.onclick=_=>{if(!op||!buf.length||A==null)return;B=parseFloat(buf.join(""));res=ops[op](A,B);d.textContent=(res=+res.toFixed(3));A=res;buf=[""+res];res=null;evald=1};clear.onclick=_=>{A=B=op=res=null;buf=[];d.textContent="";dot.disabled=0};backspace.onclick=_=>{buf.pop();d.textContent=buf.join("");dot.disabled=!buf.includes(".")};
+//which is extremely funny
