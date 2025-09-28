@@ -59,52 +59,52 @@ const display = document.querySelector("#display");
 
 
 zero.addEventListener('click',() => {
-        display.textContent = "0";
+        display.textContent += "0";
         displayContent = display.textContent;
 })
 
 one.addEventListener('click',() => {
-        display.textContent = "1";
+        display.textContent += "1";
         displayContent = display.textContent;
 })
 
 two.addEventListener('click',() => {
-        display.textContent = "2";
+        display.textContent += "2";
         displayContent = display.textContent;
 })
 
 three.addEventListener('click',() => {
-        display.textContent = "3";
+        display.textContent += "3";
         displayContent = display.textContent;
 })
 
 four.addEventListener('click',() => {
-        display.textContent = "4";
+        display.textContent += "4";
         displayContent = display.textContent;
 })
 
 five.addEventListener('click',() => {
-        display.textContent = "5";
+        display.textContent += "5";
         displayContent = display.textContent;
 })
 
 six.addEventListener('click',() => {
-        display.textContent = "6";
+        display.textContent += "6";
         displayContent = display.textContent;
 })
 
 seven.addEventListener('click',() => {
-        display.textContent = "7";
+        display.textContent += "7";
         displayContent = display.textContent;
 })
 
 eight.addEventListener('click',() => {
-        display.textContent = "8";
+        display.textContent += "8";
         displayContent = display.textContent;
 })
 
 nine.addEventListener('click',() => {
-        display.textContent = "9";
+        display.textContent += "9";
         displayContent = display.textContent;
 })
 
