@@ -18,6 +18,8 @@ body {
 #display {
     font-size: 40px;
     flex-shrink: 2;
+    width: 200px;
+    height: 42px;
 }
 
 button {

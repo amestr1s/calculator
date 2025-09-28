@@ -109,27 +109,44 @@ nine.addEventListener('click',() => {
 })
 
 plus.addEventListener('click',() => {
+        numA = parseFloat(displayContent);
+        operator = "+";
+        display.textContent = "";
+        displayContent = display.textContent;
         
 })
 
 minus.addEventListener('click',() => {
-        
+        numA = parseFloat(displayContent);
+        operator = "-";
+        display.textContent = "";
+        displayContent = display.textContent;
 })
 
 multiplier.addEventListener('click',() => {
-        
+        numA = parseFloat(displayContent);
+        operator = "*";
+        display.textContent = "";
+        displayContent = display.textContent;
 })
 
 divider.addEventListener('click',() => {
-        
+        numA = parseFloat(displayContent);
+        operator = "/";
+        display.textContent = "";
+        displayContent = display.textContent;
 })
 
 equal.addEventListener('click',() => {
-        
+        numB = parseFloat(displayContent);
+        operate(numA, operator, numB);
+        display.textContent = result;
+        displayContent = display.textContent;
 })
 
 dot.addEventListener('click',() => {
-        display.textContent = ".";
+        display.textContent += ".";
+        displayContent = display.textContent;
 })
 
 clear.addEventListener('click',() => {
